@@ -4,7 +4,7 @@ import { OpenAIStream, StreamingTextResponse } from 'ai'
 // Create an OpenAI API client (that's edge friendly!)
 const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
-  basePath:'https://openai.1rmb.tk'
+  // basePath: 'https://yangyang08.xyz'
 })
 const openai = new OpenAIApi(config)
 

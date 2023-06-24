@@ -12,6 +12,12 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes: {
+        'btn-press': {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(0.9)' },
+        },
+      }
     },
   },
   plugins: [],

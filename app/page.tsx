@@ -5,7 +5,7 @@ import { MessageBot } from './components/MessageBot'
 import { MessageHuman } from './components/MessageHuman'
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat(
+  const { messages, input, handleInputChange, handleSubmit, isLoading, reload, stop } = useChat(
     {
       initialInput: "你叫什么",
       initialMessages:
@@ -53,15 +53,25 @@ export default function Chat() {
       </div>
       {/* 提出问题框 */}
       <div className=" w-full  mt-auto   inset-x-0 border-t bg-gray-50 py-2  dark:border-white/20 dark:bg-gray-800 sm:py-4">
-        <form onSubmit={handleSubmit} className='flex justify-center items-center gap-3 mb-8'>
-          <label className=' relative select-none'>
+        <div className='w-full flex justify-center items-center'>
+          <div className='w-[180px] h-[38px] text-center leading-[38px] cursor-pointer rounded-lg text-sm select-none border-gray-400 mb-4 border'>
+            {
+              isLoading ? (
+                <span onClick={ () => stop()}>Stop generation</span>
+              ) : (
+                <span onClick={ () => reload()}>Regenerate response</span>
+              )
+            }
+          </div>
+
+        </div>
+        <form onSubmit={handleSubmit} className='flex justify-center items-center gap-3 mb-8 px-2 sm:px-4 md:mx-auto md:max-w-2xl md:px-0 xl:max-w-3xl'>
             <input
               placeholder='Say something...'
               className=" w-full  max-w-md border border-gray-300 rounded  shadow-xl p-2"
               value={input}
               onChange={handleInputChange}
             />
-          </label>
           <button type="submit" className="btn rounded-full btn-press btn-sm btn-gradient shadow-lg gap-1 
           group relative transition duration-200 ease-in-out transform-gpu hover:scale-105 active:scale-90" data-theme="light">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

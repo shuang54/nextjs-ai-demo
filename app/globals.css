@@ -205,10 +205,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ea507f;
+  background-color: #f58cab;
   border-radius: 4px;
 }
-
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f50b51;
+  border-radius: 4px;
+}
 ::-webkit-scrollbar-track {
   background-color: #CBD5E0;
   border-radius: 4px;
